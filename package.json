@@ -1,0 +1,31 @@
+{
+  "name": "project-v",
+  "version": "1.0.0",
+  "description": "Project V",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzzzl/project-v.git"
+  },
+  "keywords": [],
+  "author": "Bruno Peselli, Thiago Soares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pzzzl/project-v/issues"
+  },
+  "homepage": "https://github.com/pzzzl/project-v#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongodb": "^5.1.0"
+  }
+}
