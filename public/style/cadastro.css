@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-
 body {
     background: #202124;
     margin: 0;
@@ -27,17 +26,8 @@ h1 {
     flex-direction: column;
 }
 
-#root {
-    width: 50%;
-}
-
-form {
+button#registerUser {
     width: 100%;
-}
-
-button {
-    width: 100%;
-    cursor: pointer;
 }
 
 input {
@@ -46,26 +36,14 @@ input {
     margin: 0;
 }
 
-input, button {
+input, button#registerUser {
     margin: 2px 0;
-}
-
-#logIn {
-    background: orange;
-    color: black;
-    border: 1px solid black;
-    font-weight: bold;
-}
-
-#logIn:hover {
-    background: black;
-    color: white;
-}
-
-.hiddenClass {
-    opacity: 0%;
 }
 
 h4 {
     color: darkred;
+}
+
+.hiddenClass {
+    visibility: hidden;
 }

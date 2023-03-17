@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuário cadastrado com sucesso</title>
+    <link rel="stylesheet" href="/style/usuarioCadastradoComSucesso.css" />
+  </head>
+  <body>
+    Usuário <%= user %> cadastrado com sucesso!<br />Redirecionando para a tela
+    de login...
+    <script>
+      function redirect() {
+        document.location = "/login";
+      }
+      setTimeout(redirect, 5000);
+    </script>
+  </body>
+</html>

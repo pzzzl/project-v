@@ -10,17 +10,30 @@
   <body>
     <div id="root">
       <h1>Project V</h1>
-      <form action="/login" method="get">
-        <input type="text" name="user" id="user" placeholder="User" value=<%= user %>>
+      <form action="/login" method="post">
         <input
+          required
+          type="text"
+          name="user"
+          id="user"
+          placeholder="Usuário"
+          value=<%=user%>>
+        <input
+          required
           type="password"
           name="password"
           id="password"
-          placeholder="Password"
+          placeholder="Senha"
         />
-        <button id="logIn" type="submit">Log in</button>
-        <h4 class=<%= erro %>>Senha incorreta</h4>
+        <button id="logIn" type="submit">Entrar</button>
+        
       </form>
+
+      <form action="/cadastro" method="get">
+        <button id="signIn" type="submit">Cadastrar</button>
+      </form>
+
+      <h4 class=<%=className%>>Senha incorreta</h4>
     </div>
   </body>
 </html>
