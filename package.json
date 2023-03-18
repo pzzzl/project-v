@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "doc": "rmdir /q /s out && jsdoc -r index.js ./routes"
+    "doc": "rmdir /q /s docs && jsdoc -r index.js ./routes -d ./docs"
   },
   "repository": {
     "type": "git",
