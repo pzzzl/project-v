@@ -1,15 +1,35 @@
+/** Roteador Express para autenticação de usuário.
+ * @module routes/login
+ */
 const express = require("express");
 const router = express.Router();
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient } = require("mongodb");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const mongoClient = require("../database/database");
 
+/** Rota para renderizar a página inicial.
+ * @name GET /
+ * @function
+ * @memberof module:routes/login
+ * @param {Object} req - Objeto de solicitação HTTP.
+ * @param {Object} res - Objeto de resposta HTTP.
+ */
 router.get("/", (req, res) => {
   res.render("index", { user: undefined, className: "hiddenClass" });
 });
 
-// Rota de autenticação de usuário
+/** Rota para autenticação de usuário.
+ * @name POST /
+ * @function
+ * @memberof module:routes/login
+ * @async
+ * @param {Object} req - Objeto de solicitação HTTP.
+ * @param {Object} req.body - Corpo da solicitação HTTP contendo informações de usuário e senha.
+ * @param {string} req.body.user - Nome de usuário.
+ * @param {string} req.body.password - Senha do usuário.
+ * @param {Object} res - Objeto de resposta HTTP.
+ */
 router.post("/", async (req, res) => {
   const { user, password } = req.body;
 

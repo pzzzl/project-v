@@ -1,8 +1,20 @@
+/** Roteador Express para exibir uma lista de roles.
+ * @module routes/roles
+ */
 const express = require("express");
 const router = express.Router();
 const verificaToken = require("../middlewares/verificaToken");
 const mongoClient = require("../database/database");
 
+/** Rota para exibir uma lista de roles.
+ * @name GET /
+ * @function
+ * @memberof module:routes/roles
+ * @param {Object} req - Objeto de solicitação HTTP.
+ * @param {Object} res - Objeto de resposta HTTP.
+ * @param {function} next - Função callback para chamar o próximo middleware.
+ * @throws {Error} Se não houver token no cookie ou o token não for válido.
+ */
 router.get("/", verificaToken, async (req, res) => {
   let client;
   try {
@@ -32,6 +44,13 @@ router.get("/", verificaToken, async (req, res) => {
   }
 });
 
+/** Retorna o nickname do usuário com base no id do usuário.
+ * @async
+ * @function
+ * @memberof module:routes/roles
+ * @param {string} userId - O id do usuário.
+ * @returns {Promise<string>} O nickname do usuário.
+ */
 async function getUserNickname(userId) {
   try {
     const client = await mongoClient.connect();
@@ -45,10 +64,17 @@ async function getUserNickname(userId) {
   }
 }
 
-async function formatDate(input) {
-  if (input) {
-    var datePart = input.match(/\d+/g),
-      year = datePart[0], // get only two digits
+/** Formata a data em uma string no formato "DD/MM/AAAA".
+ * @async
+ * @function
+ * @memberof module:routes/roles
+ * @param {Date} date - A data a ser formatada.
+ * @returns {Promise<string>} A data formatada em uma string.
+ */
+async function formatDate(date) {
+  if (date) {
+    var datePart = date.match(/\d+/g),
+      year = datePart[0],
       month = datePart[1],
       day = datePart[2];
 
