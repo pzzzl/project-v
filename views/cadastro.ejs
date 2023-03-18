@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project V - Cadastro</title>
-    <link rel="stylesheet" href="/style/cadastro.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/style/cadastro.css" />
+  </head>
+  <body>
     <div id="root">
-        <h1>Create account</h1>
-        <form action="/cadastro" method="post">
-            <input type="text" name="user" id="user" placeholder="Usuário" value=<%= user %>>
-            <input type="password" name="password" id="password" placeholder="Senha">
-            <button type="submit" id="registerUser">Cadastrar</button>
-        </form>
-        <h4 class=<%=className%>>Usuário já cadastrado</h4>
+      <h1>Project V</h1>
+      <h2>Cadastro</h2>
+      <form action="/cadastro" method="post">
+        <input
+          required
+          type="text"
+          name="user"
+          id="user"
+          placeholder="Usuário"
+          value="<%= user %>"
+          pattern="^[A-Za-z][A-Za-z0-9_]{2,29}$"
+          title='Somente letras, números e underscore ("_"). É preciso ter de 3 a 30 caracteres.'
+        />
+        <input
+          required
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Nome completo"
+        />
+        <input
+          required
+          type="text"
+          name="nickname"
+          id="nickname"
+          placeholder="Apelido"
+        />
+        <input required type="date" name="bornDate" id="bornDate" />
+        <input
+          required
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Senha"
+        />
+        <button type="submit" id="registerUser">Cadastrar</button>
+      </form>
+      <h4 class="<%=className%>">Usuário já cadastrado</h4>
     </div>
-</body>
+  </body>
 </html>

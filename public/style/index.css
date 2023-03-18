@@ -10,10 +10,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 body, button, input {
     font-family: 'Michroma', sans-serif;
+}
+
+input[type=file]::file-selector-button {
+    color: white;
 }
 
 h1 {

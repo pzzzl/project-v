@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar perfil - <%=user%></title>
+    <link rel="stylesheet" href="/style/global.css" />
+  </head>
+  <body>
+    <div id="root">
+      <h1>Project V</h1>
+      <h2>Editar perfil</h2>
+      <h3><a href="/">Voltar</a></h3>
+      <form action="/perfil/editar" method="post">
+        <input disabled type="text" name="user" placeholder="<%=user%>" /><br>
+        <input
+        required
+          type="text"
+          value="<%=name%>"
+          name="name"
+          placeholder="Nome completo"
+        /><br />
+        <input
+        required
+          type="text"
+          value="<%=nickname%>"
+          name="nickname"
+          placeholder="Apelido"
+        /><br />
+        <input
+        required
+          type="date"
+          value="<%=bornDate%>"
+          name="bornDate"
+        /><br />
+        <button type="submit">Alterar</button>
+      </form>
+      <h4 style="color:<%=messageColor%>"><%=message%></h4>
+    </div>
+  </body>
+</html>

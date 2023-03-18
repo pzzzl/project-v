@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuários</title>
+    <link rel="stylesheet" href="/style/global.css" />
+  </head>
+  <body>
+    <div id="root">
+      <h1>Project V</h1>
+      <h2>Usuários</h2>
+      <h3><a href="/perfil">Voltar</a></h3>
+      <ul>
+        <% for (var i = 0; i < newListItems.length ; i++) { %>
+        <li style="color: orange; font-weight: bold"><%= newListItems[i].nickname %></li>
+        <li><%= newListItems[i].name %>, <%= newListItems[i].age %></li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

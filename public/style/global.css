@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 body {
     background: #202124;
     margin: 0;
@@ -15,8 +16,9 @@ body, button, input {
     font-family: 'Michroma', sans-serif;
 }
 
-button {
-    cursor: pointer;
+#root {
+    width: 80%;
+    height: 100%;
 }
 
 h1 {
@@ -27,31 +29,35 @@ h2 {
     color: orange;
 }
 
-#root, form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-button#registerUser {
-    width: 100%;
-}
-
-input {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-input, button#registerUser {
-    margin: 2px 0;
-}
-
 h4 {
     color: darkred;
 }
 
-.hiddenClass {
-    visibility: hidden;
+input {
+    margin: 4px 0;
+}
+
+button {
+    margin: 4px 0;
+}
+
+a {
+    text-decoration: none;
+    color: lightblue;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }

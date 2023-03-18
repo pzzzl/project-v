@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile - <%= user %></title>
-    <link rel="stylesheet" href="/style/profile.css">
-</head>
-<body>
-    Olá <%= user %>
-    <form action="logout" method="get">
+    <link rel="stylesheet" href="/style/global.css" />
+  </head>
+  <body>
+    <div id="root">
+      <h1>Project V</h1>
+      <h2>Bem vindo, <%= user %></h2>
+
+      <form action="/usuarios" method="get">
+        <button type="submit">Ver usuários</button>
+      </form>
+      <form action="/roles" method="get">
+        <button type="submit">Rolês</button>
+      </form>
+      <form action="/perfil/editar" method="get">
+        <button type="submit">Editar perfil</button>
+      </form>
+      <form action="/logout" method="get">
         <button type="submit">Logout</button>
-    </form>
-</body>
+      </form>
+    </div>
+  </body>
 </html>
