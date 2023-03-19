@@ -50,6 +50,13 @@ button {
   padding: 5px;
   border-radius: 5px;
   border: none;
+  background: white;
+  color: black;
+}
+
+button:hover {
+  background: black;
+  color: white;
 }
 
 button.action {
@@ -57,9 +64,20 @@ button.action {
   color: white;
 }
 
+button.action:hover {
+  background: black;
+  color: lightgreen;
+  font-weight: bold;
+}
+
 button.warning {
   background: darkred;
   color: white;
+}
+
+button.warning:hover {
+  background: black;
+  color: red;
 }
 
 a {
