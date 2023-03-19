@@ -15,6 +15,7 @@ const app = express();
 @returns {void}
 */
 app.use(express.static("public"));
+// app.use(express.static(__dirname + '/public'));
 
 /** Define o middleware para parsear JSON
 @function
