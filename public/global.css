@@ -1,63 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
 
 body {
-    background: #202124;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: #202124;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-body, button, input {
-    font-family: 'Michroma', sans-serif;
+body,
+button,
+input {
+  font-family: "Michroma", sans-serif;
+}
+
+.hiddenClass {
+  visibility: hidden;
 }
 
 #root {
-    width: 80%;
-    height: 100%;
+  width: 80%;
+  height: 100%;
 }
 
 h1 {
-    color: white;
+  color: white;
 }
 
 h2 {
-    color: orange;
+  color: orange;
 }
 
 h4 {
-    color: darkred;
+  color: darkred;
 }
 
 input {
-    margin: 4px 0;
+  margin: 4px 0;
 }
 
 button {
-    margin: 4px 0;
+  margin: 4px 0;
 }
 
 a {
-    text-decoration: none;
-    color: lightblue;
+  text-decoration: none;
+  color: lightblue;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 ul {
-    list-style: none;
-    color: white;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
