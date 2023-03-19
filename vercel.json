@@ -13,5 +13,5 @@
             "dest": "/index.js"
         }
     ],
-    "public": "public"
+    "public": true
 }
