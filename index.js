@@ -131,3 +131,23 @@ app.use("/logout", logoutRouter);
 app.get("/cadastro.css", (req, res) => {
   res.sendFile(__dirname + "/public/cadastro.css");
 });
+
+app.get("/expiredSession.css", (req, res) => {
+  res.sendFile(__dirname + "/public/expiredSession.css");
+});
+
+app.get("/global.css", (req, res) => {
+  res.sendFile(__dirname + "/public/global.css");
+});
+
+app.get("/index.css", (req, res) => {
+  res.sendFile(__dirname + "/public/index.css");
+});
+
+app.get("/profile.css", (req, res) => {
+  res.sendFile(__dirname + "/public/profile.css");
+});
+
+app.get("/usuarioCadastradoComSucesso.css", (req, res) => {
+  res.sendFile(__dirname + "/public/usuarioCadastradoComSucesso.css");
+});
