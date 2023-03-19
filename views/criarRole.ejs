@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Criar rolê</title>
-    <link rel="stylesheet" href="/global.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/global.css" />
+  </head>
+  <body>
     <div id="root">
-        <h1>Project V</h1>
-        <h2>Criar rolê</h2>
-        <h3><a href="/roles">Voltar</a></h3>
-        <form action="/roles/criar" method="post">
-            <input required type="text" name="nomeRole" id="nomeRole" placeholder="Título">
-            <input required type="text" name="localRole" id="localRole" placeholder="Local">
-            <input type="text" name="descricaoRole" id="descricaoRole" placeholder="Descrição (opcional)">
-            <input required type="date" name="dateRole" id="dateRole">
-            <input required type="time" name="timeRole" id="timeRole">
-            <input type="submit" value="Criar">
-        </form>
+      <h1>Project V</h1>
+      <h2>Criar rolê</h2>
+      <h3><a href="/roles">Voltar</a></h3>
+      <form action="/roles/criar" method="post">
+        <input
+          required
+          type="text"
+          name="nomeRole"
+          id="nomeRole"
+          placeholder="Título"
+        />
+        <input
+          required
+          type="text"
+          name="localRole"
+          id="localRole"
+          placeholder="Local"
+        />
+        <input
+          type="text"
+          name="descricaoRole"
+          id="descricaoRole"
+          placeholder="Descrição (opcional)"
+        />
+        <input required type="date" name="dateRole" id="dateRole" />
+        <input required type="time" name="timeRole" id="timeRole" />
+
+        <button type="submit">Criar</button>
+      </form>
     </div>
-</body>
+  </body>
 </html>

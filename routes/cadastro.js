@@ -47,10 +47,10 @@ router.post("/", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await usersCollection.insertOne({
-      _id: user,
+      _id: user.toLowerCase(),
       password: hashedPassword,
-      name: name,
-      nickname: nickname,
+      name: name.trim(),
+      nickname: nickname.trim(),
       bornDate: bornDate,
     });
 

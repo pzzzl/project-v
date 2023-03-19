@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="/global.css" />
   </head>
   <body>
-    Usuário <%= user %> cadastrado com sucesso!<br />Redirecionando para a tela
-    de login...
+    <div id="root">
+      Usuário <%= user %> cadastrado com sucesso!<br />Redirecionando para a
+      tela de login...
+    </div>
+
     <script>
       function redirect() {
         document.location = "/login";

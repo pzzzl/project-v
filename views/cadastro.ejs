@@ -11,6 +11,7 @@
     <div id="root">
       <h1>Project V</h1>
       <h2>Cadastro</h2>
+      <h3><a href="/login">Voltar</a></h3>
       <form action="/cadastro" method="post">
         <input
           required
@@ -19,8 +20,8 @@
           id="user"
           placeholder="Usuário"
           value="<%= user %>"
-          pattern="^[A-Za-z][A-Za-z0-9_]{2,29}$"
-          title='Somente letras, números e underscore ("_"). É preciso ter de 3 a 30 caracteres.'
+          pattern="[a-z]{2,29}$"
+          title="Somente letras minúsculas, sem espaços. É preciso ter de 3 a 30 caracteres."
         />
         <input
           required
@@ -36,7 +37,13 @@
           id="nickname"
           placeholder="Apelido"
         />
-        <input required type="date" name="bornDate" id="bornDate" />
+        <input
+          required
+          type="date"
+          name="bornDate"
+          id="bornDate"
+          pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        />
         <input
           required
           type="password"

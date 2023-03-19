@@ -10,19 +10,18 @@
   <body>
     <div id="root">
       <h1>Project V</h1>
-      <h2>Bem vindo, <%= user %></h2>
-
-      <form action="/usuarios" method="get">
-        <button type="submit">Ver usuários</button>
-      </form>
+      <h2><%= user %></h2>
+      <h3><a href="/perfil/editar">Editar perfil</a></h3>
+      
       <form action="/roles" method="get">
         <button type="submit">Rolês</button>
       </form>
-      <form action="/perfil/editar" method="get">
-        <button type="submit">Editar perfil</button>
+      <form action="/usuarios" method="get">
+        <button type="submit">Membros</button>
       </form>
+
       <form action="/logout" method="get">
-        <button type="submit">Logout</button>
+        <button id="logout" type="submit">Logout</button>
       </form>
     </div>
   </body>

@@ -19,7 +19,6 @@
           <%= newListItems[i].nomeRole %>
         </li>
         <li>Local: <%= newListItems[i].localRole %></li>
-        <!-- <li><%= newListItems[i].descricaoRole %></li> -->
         <li>
           <%= newListItems[i].dateRole %> às <%= newListItems[i].timeRole %>
         </li>
@@ -27,7 +26,7 @@
         <% } %>
       </ul>
       <form action="/roles/criar" method="get">
-        <input type="submit" value="Criar" />
+        <button type="submit">Criar</button>
       </form>
     </div>
   </body>

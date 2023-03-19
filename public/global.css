@@ -10,6 +10,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  text-align: center;
 }
 
 body,
@@ -47,6 +49,12 @@ button {
   margin: 4px 0;
 }
 
+button#logout {
+  background: darkred;
+  color: white;
+  border: none;
+}
+
 a {
   text-decoration: none;
   color: lightblue;
@@ -66,4 +74,10 @@ ul {
 form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form button, form input {
+  min-width: 300px;
 }
