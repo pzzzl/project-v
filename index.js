@@ -15,7 +15,6 @@ const app = express();
 @returns {void}
 */
 app.use(express.static("public"));
-// app.use(express.static(__dirname + '/public'));
 
 /** Define o middleware para parsear JSON
 @function
@@ -128,3 +127,7 @@ app.use("/roles", rolesRouter);
 app.use("/roles/criar", criarRoleRouter);
 app.use("/usuarios", usuariosRouter);
 app.use("/logout", logoutRouter);
+
+app.get("/cadastro.css", (req, res) => {
+  res.sendFile(__dirname + "/public/cadastro.css");
+});
