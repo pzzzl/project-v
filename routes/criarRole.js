@@ -10,8 +10,9 @@ router.get("/", verificaToken, (req, res) => {
 router.post("/", verificaToken, async (req, res) => {
   const { user } = req;
   const { nomeRole, localRole, descricaoRole, dateRole, timeRole } = req.body;
+  let client;
   try {
-    const client = await mongoClient.connect();
+    client = await mongoClient.connect();
     const rolesCollection = client.db("voidDatabase").collection("roles");
     await rolesCollection.insertOne({
       user,
@@ -28,6 +29,8 @@ router.post("/", verificaToken, async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send("Erro ao criar rolê");
+  } finally {
+    if(client) await client.close()
   }
 });
 

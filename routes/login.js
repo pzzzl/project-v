@@ -11,9 +11,9 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   const { user, password } = req.body;
-
+  let client;
   try {
-    const client = await mongoClient.connect();
+    client = await mongoClient.connect();
     const usersCollection = client.db("voidDatabase").collection("users");
 
     const result = await usersCollection.findOne({ _id: user });
@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
     console.error(err);
     res.sendStatus(500);
   } finally {
-    mongoClient.close();
+    if (client) await client.close();
   }
 });
 

@@ -9,6 +9,7 @@ router.get("/", verificarToken, isAdmin, async (req, res) => {
 
   try {
     client = await mongoClient.connect();
+
     const usersCollection = client.db("voidDatabase").collection("users");
 
     const data = [];
@@ -30,8 +31,10 @@ router.get("/:id", verificarToken, isAdmin, async (req, res) => {
   if (req.params.id == "admin")
     return res.send('Não é possível modificar o perfil "admin"');
 
+  let client;
+
   try {
-    let client = await mongoClient.connect();
+    client = await mongoClient.connect();
     const usersCollection = client.db("voidDatabase").collection("users");
 
     let data = await usersCollection.findOne({ _id: req.params.id });
@@ -46,8 +49,10 @@ router.post("/:id", verificarToken, isAdmin, async (req, res) => {
 
   data.admin = data.admin == "true" ? true : false;
 
+  let client;
+
   try {
-    let client = await mongoClient.connect();
+    client = await mongoClient.connect();
     const usersCollection = client.db("voidDatabase").collection("users");
 
     let result = await usersCollection.findOneAndUpdate(
