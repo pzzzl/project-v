@@ -1,22 +1,10 @@
-/** Roteador Express para exibir uma lista de roles.
- * @module routes/roles
- */
 const express = require("express");
 const router = express.Router();
 const verificaToken = require("../middlewares/verificaToken");
 const formatDate = require("../functions/formatDate");
-const getUserNickname = require("../functions/getUserNickname")
+const getUserNickname = require("../functions/getUserNickname");
 const mongoClient = require("../database/database");
 
-/** Rota para exibir uma lista de roles.
- * @name GET /
- * @function
- * @memberof module:routes/roles
- * @param {Object} req - Objeto de solicitação HTTP.
- * @param {Object} res - Objeto de resposta HTTP.
- * @param {function} next - Função callback para chamar o próximo middleware.
- * @throws {Error} Se não houver token no cookie ou o token não for válido.
- */
 router.get("/", verificaToken, async (req, res) => {
   let client;
   try {
@@ -47,6 +35,5 @@ router.get("/", verificaToken, async (req, res) => {
     client.close();
   }
 });
-
 
 module.exports = router;

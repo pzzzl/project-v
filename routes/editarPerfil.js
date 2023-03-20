@@ -1,33 +1,8 @@
-/** Importa o framework Express
-@const {object} express
-*/
 const express = require("express");
-
-/** Importa a função verificaToken do middleware
-@const {function} verificaToken
-*/
 const verificaToken = require("../middlewares/verificaToken");
-
-/** Cria um roteador utilizando o framework Express
-@const {object} router
-*/
 const router = express.Router();
-
-/** Importa o cliente do MongoDB
-@const {object} mongoClient
-*/
 const mongoClient = require("../database/database");
 
-/** Trata a requisição GET na rota "/"
-@function get
-@param {string} path - a URL raiz da rota
-@param {function} middleware - o middleware verificaToken
-@param {function} middleware - a função assíncrona que trata a requisição GET
-@param {object} req - objeto da requisição HTTP
-@param {object} req.user - objeto que representa o usuário logado
-@param {object} res - objeto da resposta HTTP
-@returns {Promise} Promessa contendo a resposta da página "editarPerfil"
-*/
 router.get("/", verificaToken, async (req, res) => {
   let user = req.user;
   const client = await mongoClient.connect();
@@ -51,20 +26,6 @@ router.get("/", verificaToken, async (req, res) => {
   }
 });
 
-/** Trata a requisição POST na rota "/"
-@function post
-@param {string} path - a URL raiz da rota
-@param {function} middleware - o middleware verificaToken
-@param {function} middleware - a função assíncrona que trata a requisição POST
-@param {object} req - objeto da requisição HTTP
-@param {object} req.user - objeto que representa o usuário logado
-@param {object} req.body - objeto que representa o corpo da requisição HTTP
-@param {string} req.body.name - nome do usuário
-@param {string} req.body.nickname - apelido do usuário
-@param {string} req.body.bornDate - data de nascimento do usuário
-@param {object} res - objeto da resposta HTTP
-@returns {Promise} Promessa contendo a resposta da página "editarPerfil"
-*/
 router.post("/", verificaToken, async (req, res) => {
   let user = req.user;
   const { name, nickname, bornDate } = req.body;
