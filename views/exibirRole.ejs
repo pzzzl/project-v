@@ -14,30 +14,35 @@
       <h3><a href="/roles">Voltar</a></h3>
 
       <div class="box">
-        <span style="color: orange; font-weight: bold">Nome</span><br>
+        <span style="color: orange; font-weight: bold">Nome</span><br />
         <%= data.nomeRole %>
       </div>
 
       <div class="box">
-        <span style="color: orange; font-weight: bold">Local</span><br>
+        <span style="color: orange; font-weight: bold">Organizador</span><br />
+        <%= data.nickname %>
+      </div>
+
+      <div class="box">
+        <span style="color: orange; font-weight: bold">Local</span><br />
         <%= data.localRole %>
       </div>
 
       <% if(data.descricaoRole) { %>
       <div class="box">
-        <span style="color: orange; font-weight: bold">Descrição</span><br>
+        <span style="color: orange; font-weight: bold">Descrição</span><br />
         <%= data.descricaoRole %>
       </div>
 
       <% } %>
 
       <div class="box">
-        <span style="color: orange; font-weight: bold">Data</span><br>
+        <span style="color: orange; font-weight: bold">Data</span><br />
         <%= data.dateRole %>
       </div>
 
       <div class="box">
-        <span style="color: orange; font-weight: bold">Horário</span><br>
+        <span style="color: orange; font-weight: bold">Horário</span><br />
         <%= data.timeRole %>
       </div>
     </div>

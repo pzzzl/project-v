@@ -4,7 +4,8 @@
 const express = require("express");
 const router = express.Router();
 const verificaToken = require("../middlewares/verificaToken");
-const formatDate = require("../functions/formatDate")
+const formatDate = require("../functions/formatDate");
+const getUserNickname = require("../functions/getUserNickname")
 const mongoClient = require("../database/database");
 
 /** Rota para exibir uma lista de roles.
@@ -46,27 +47,6 @@ router.get("/", verificaToken, async (req, res) => {
     client.close();
   }
 });
-
-/** Retorna o nickname do usuário com base no id do usuário.
- * @async
- * @function
- * @memberof module:routes/roles
- * @param {string} userId - O id do usuário.
- * @returns {Promise<string>} O nickname do usuário.
- */
-async function getUserNickname(userId) {
-  try {
-    const client = await mongoClient.connect();
-    const usersCollection = client.db("voidDatabase").collection("users");
-
-    const userFound = await usersCollection.findOne({ _id: userId });
-    return userFound.nickname;
-  } catch (err) {
-    console.error(err);
-    return "Usuário não encontrado";
-  }
-}
-
 
 
 module.exports = router;

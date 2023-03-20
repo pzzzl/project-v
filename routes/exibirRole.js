@@ -3,6 +3,7 @@ const router = express.Router();
 const verificaToken = require("../middlewares/verificaToken");
 const mongoClient = require("../database/database");
 const formatDate = require("../functions/formatDate");
+const getUserNickname = require("../functions/getUserNickname");
 const { ObjectId } = require("mongodb");
 
 router.get("/:id", verificaToken, async (req, res) => {
@@ -13,6 +14,7 @@ router.get("/:id", verificaToken, async (req, res) => {
     _id: new ObjectId(req.params.id),
   });
   result.dateRole = await formatDate(result.dateRole);
+  result.nickname = await getUserNickname(result.user);
   res.render("exibirRole", { data: result });
 });
 
