@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/global.css" />
+    <title>Rolê</title>
+  </head>
+  <body>
+    <div id="root">
+      <h1>Project V</h1>
+      <h2>Rolê</h2>
+      <h3><a href="/roles">Voltar</a></h3>
+
+      <div class="box">
+        <span style="color: orange; font-weight: bold">Nome</span><br>
+        <%= data.nomeRole %>
+      </div>
+
+      <div class="box">
+        <span style="color: orange; font-weight: bold">Local</span><br>
+        <%= data.localRole %>
+      </div>
+
+      <% if(data.descricaoRole) { %>
+      <div class="box">
+        <span style="color: orange; font-weight: bold">Descrição</span><br>
+        <%= data.descricaoRole %>
+      </div>
+
+      <% } %>
+
+      <div class="box">
+        <span style="color: orange; font-weight: bold">Data</span><br>
+        <%= data.dateRole %>
+      </div>
+
+      <div class="box">
+        <span style="color: orange; font-weight: bold">Horário</span><br>
+        <%= data.timeRole %>
+      </div>
+    </div>
+  </body>
+</html>

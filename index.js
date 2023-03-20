@@ -104,6 +104,7 @@ const rolesRouter = require("./routes/roles");
 const criarRoleRouter = require("./routes/criarRole");
 const usuariosRouter = require("./routes/usuarios");
 const logoutRouter = require("./routes/logout");
+const roleRouter = require("./routes/exibirRole");
 
 /** Define as rotas e seus respectivos roteadores
 @function use
@@ -119,6 +120,7 @@ app.use("/roles", rolesRouter);
 app.use("/roles/criar", criarRoleRouter);
 app.use("/usuarios", usuariosRouter);
 app.use("/logout", logoutRouter);
+app.use("/role", roleRouter)
 
 app.get("/global.css", (req, res) => {
   res.sendFile(__dirname + "/public/global.css");

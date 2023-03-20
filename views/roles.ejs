@@ -12,22 +12,26 @@
       <h1>Project V</h1>
       <h2>Rolês</h2>
       <h3><a href="/perfil">Voltar</a></h3>
-
-      <ul>
-        <% for (var i = 0; i < newListItems.length ; i++) { %>
-        <li style="color: orange; font-weight: bold">
-          <%= newListItems[i].nomeRole %>
-        </li>
-        <li>Local: <%= newListItems[i].localRole %></li>
-        <li>
-          <%= newListItems[i].dateRole %> às <%= newListItems[i].timeRole %>
-        </li>
-        <li>Organizador: <%= newListItems[i].nickname %></li>
-        <% } %>
-      </ul>
       <form action="/roles/criar" method="get">
         <button class="action" type="submit">Criar</button>
       </form>
+
+      <ul>
+        <% for (var i = 0; i < newListItems.length ; i++) { %>
+        <div class="box">
+          <li style="color: orange; font-weight: bold">
+            <a class="standardLink" href="/role/<%=newListItems[i].id%>"
+              ><%= newListItems[i].nomeRole %></a
+            >
+          </li>
+          <li>Local: <%= newListItems[i].localRole %></li>
+          <li>
+            <%= newListItems[i].dateRole %> às <%= newListItems[i].timeRole %>
+          </li>
+          <li>Organizador: <%= newListItems[i].nickname %></li>
+        </div>
+        <% } %>
+      </ul>
     </div>
   </body>
 </html>

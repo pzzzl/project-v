@@ -4,6 +4,7 @@
 const express = require("express");
 const router = express.Router();
 const verificaToken = require("../middlewares/verificaToken");
+const formatDate = require("../functions/formatDate")
 const mongoClient = require("../database/database");
 
 /** Rota para exibir uma lista de roles.
@@ -26,9 +27,11 @@ router.get("/", verificaToken, async (req, res) => {
     const cursor = rolesCollection.find({});
     for await (const role of cursor) {
       const roleData = {
+        id: role._id.toString(),
         nickname: await getUserNickname(role.user),
         nomeRole: role.nomeRole,
         localRole: role.localRole,
+        descricaoRole: role.descricaoRole,
         dateRole: await formatDate(role.dateRole),
         timeRole: role.timeRole,
       };
@@ -64,24 +67,6 @@ async function getUserNickname(userId) {
   }
 }
 
-/** Formata a data em uma string no formato "DD/MM/AAAA".
- * @async
- * @function
- * @memberof module:routes/roles
- * @param {Date} date - A data a ser formatada.
- * @returns {Promise<string>} A data formatada em uma string.
- */
-async function formatDate(date) {
-  if (date) {
-    var datePart = date.match(/\d+/g),
-      year = datePart[0],
-      month = datePart[1],
-      day = datePart[2];
 
-    return day + "/" + month + "/" + year;
-  } else {
-    return "";
-  }
-}
 
 module.exports = router;

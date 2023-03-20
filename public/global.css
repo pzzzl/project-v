@@ -107,3 +107,14 @@ form button,
 form input {
   min-width: 300px;
 }
+
+.standardLink {
+  text-decoration: underline;
+  color: orange;
+}
+
+.box {
+  border: 1px solid white;
+  margin: 10px 0;
+  padding: 10px 0;
+}
