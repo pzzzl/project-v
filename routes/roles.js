@@ -32,7 +32,7 @@ router.get("/", verificaToken, async (req, res) => {
     console.error(err);
     res.send("Erro ao buscar os rolês");
   } finally {
-    client.close();
+    await client.close();
   }
 });
 

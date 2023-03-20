@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modificar - <%= data.user %></title>
+    <link rel="stylesheet" href="/global.css" />
+  </head>
+  <body>
+    <div id="root">
+      <h1>Project V</h1>
+      <h2>Modificar usuário</h2>
+      <h3><a href="/modificar/usuarios">Voltar</a></h3>
+      <form action="/modificar/usuarios/<%=data._id%>" method="post">
+        <input name="_id" disabled type="text" value="<%=data._id%>" />
+        <input
+          name="name"
+          type="text"
+          value="<%=data.name%>"
+          placeholder="Nome completo"
+        />
+        <input
+          name="nickname"
+          type="text"
+          value="<%=data.nickname%>"
+          placeholder="Apelido"
+        />
+        <input
+          name="bornDate"
+          type="date"
+          value="<%=data.bornDate%>"
+          placeholder="Data de nascimento"
+        />
+
+        <% if(data.admin) { %>
+        <select name="admin">
+          <option value="true">Administrador</option>
+          <option value="false">Usuário padrão</option>
+        </select>
+        <% } %>
+
+        <% if(!data.admin) { %>
+        <select name="admin">
+          <option value="false">Usuário padrão</option>
+          <option value="true">Administrador</option>
+        </select>
+        <% } %>
+        <button type="submit" class="warning">Modificar</button>
+      </form>
+
+    <% if(data.message) { %>
+        <%= data.message %>
+    <% } %>
+    </div>
+  </body>
+</html>
