@@ -5,8 +5,9 @@ const mongoClient = require("../database/database");
 const calcAge = require("../functions/calcAge");
 
 router.get("/", verificaToken, async (req, res) => {
+  let client;
   try {
-    const client = await mongoClient.connect();
+    client = await mongoClient.connect();
     const usersCollection = client.db("voidDatabase").collection("users");
 
     const cursor = usersCollection.find({ _id: { $ne: "admin" } });
@@ -21,6 +22,8 @@ router.get("/", verificaToken, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send(`Erro ao buscar os usuários: ${err.message}`);
+  } finally {
+    if (client) await client.close();
   }
 });
 

@@ -7,15 +7,22 @@ const getUserNickname = require("../functions/getUserNickname");
 const { ObjectId } = require("mongodb");
 
 router.get("/:id", verificaToken, async (req, res) => {
-  const client = await mongoClient.connect();
-  const rolesCollection = client.db("voidDatabase").collection("roles");
+  let client;
+  try {
+    client = await mongoClient.connect();
+    const rolesCollection = client.db("voidDatabase").collection("roles");
 
-  let result = await rolesCollection.findOne({
-    _id: new ObjectId(req.params.id),
-  });
-  result.dateRole = await formatDate(result.dateRole);
-  result.nickname = await getUserNickname(result.user);
-  res.render("exibirRole", { data: result });
+    let result = await rolesCollection.findOne({
+      _id: new ObjectId(req.params.id),
+    });
+    result.dateRole = await formatDate(result.dateRole);
+    result.nickname = await getUserNickname(result.user);
+    res.render("exibirRole", { data: result });
+  } catch (err) {
+    res.send(err.message);
+  } finally {
+    if (client) await client.close();
+  }
 });
 
 module.exports = router;

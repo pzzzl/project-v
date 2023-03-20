@@ -41,7 +41,7 @@ h4 {
   color: darkred;
 }
 
-input {
+input, select {
   margin: 4px 0;
 }
 
@@ -104,7 +104,8 @@ form {
 }
 
 form button,
-form input {
+form input,
+form select {
   min-width: 300px;
 }
 
@@ -163,4 +164,10 @@ svg {
   margin: 10px;
   width: 20px;
   height: 20px;
+}
+
+select {
+  font-family: "Michroma", sans-serif;
+  padding: 5px;
+  border: none;
 }

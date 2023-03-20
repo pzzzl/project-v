@@ -17,7 +17,7 @@ router.get("/", verificaToken, async (req, res) => {
   } catch {
     res.send("Não foi possível acessar o perfil");
   } finally {
-    client.close();
+    if (client) await client.close();
   }
 });
 
