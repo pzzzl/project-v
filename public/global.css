@@ -114,10 +114,18 @@ form select {
   color: orange;
 }
 
-.box {
+.box,.boxRole {
   border: 1px solid white;
   margin: 10px 0;
   padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.boxRole{
+  flex-direction: column;
 }
 
 #painelDoAdministrador {
@@ -128,6 +136,34 @@ form select {
 #painelDoAdministrador:hover {
   background: black;
   color: lightcyan;
+}
+
+#participantesRole{
+  margin: 0px;
+  padding: 0px;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(46, 46, 46);
+  border: 2px solid rgb(46, 46, 46);
+  border-radius: 30px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.4s
+}
+
+#participantesRole:hover{
+  background: #202124;
+  cursor: pointer;
+}
+
+svg {
+  margin: 10px;
+  width: 20px;
+  height: 20px;
 }
 
 select {

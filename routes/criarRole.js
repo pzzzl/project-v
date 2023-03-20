@@ -10,7 +10,7 @@ router.get("/", verificaToken, (req, res) => {
 router.post("/", verificaToken, async (req, res) => {
   const { user } = req;
   const { nomeRole, localRole, descricaoRole, dateRole, timeRole } = req.body;
-  let client;
+  const participantsRole = [user];
   try {
     client = await mongoClient.connect();
     const rolesCollection = client.db("voidDatabase").collection("roles");
@@ -21,6 +21,7 @@ router.post("/", verificaToken, async (req, res) => {
       descricaoRole,
       dateRole,
       timeRole,
+      participantsRole,
     });
 
     client.close();
@@ -30,7 +31,7 @@ router.post("/", verificaToken, async (req, res) => {
     console.error(error);
     res.status(500).send("Erro ao criar rolê");
   } finally {
-    if(client) await client.close()
+    if (client) await client.close();
   }
 });
 
