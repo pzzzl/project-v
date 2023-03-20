@@ -118,3 +118,13 @@ form input {
   margin: 10px 0;
   padding: 10px 0;
 }
+
+#painelDoAdministrador {
+  background: darkcyan;
+  color: white;
+}
+
+#painelDoAdministrador:hover {
+  background: black;
+  color: lightcyan;
+}

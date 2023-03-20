@@ -4,15 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfil - <%= user %></title>
+    <title>Perfil - <%= data.user %></title>
     <link rel="stylesheet" href="/global.css" />
   </head>
   <body>
     <div id="root">
       <h1>Project V</h1>
-      <h2><%= user %></h2>
+      <h2><%= data.user %></h2>
       <h3><a href="/perfil/editar">Editar perfil</a></h3>
-      
+
+      <% if(data.admin) { %>
+      <form action="/painel-do-administrador" method="get">
+        <button id="painelDoAdministrador" type="submit">Painel do administrador</button>
+      </form>
+      <% } %>
+
       <form action="/roles" method="get">
         <button type="submit">Rolês</button>
       </form>
