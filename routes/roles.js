@@ -3,6 +3,7 @@ const router = express.Router();
 const verificaToken = require("../middlewares/verificaToken");
 const formatDate = require("../functions/formatDate");
 const getUserNickname = require("../functions/getUserNickname");
+const getParticipantsRole = require("../functions/getParticipantsRole")
 const mongoClient = require("../database/database");
 
 router.get("/", verificaToken, async (req, res) => {
@@ -10,7 +11,7 @@ router.get("/", verificaToken, async (req, res) => {
   try {
     client = await mongoClient.connect();
     const rolesCollection = client.db("voidDatabase").collection("roles");
-
+    
     const newListItems = [];
 
     const cursor = rolesCollection.find({});
@@ -23,16 +24,17 @@ router.get("/", verificaToken, async (req, res) => {
         descricaoRole: role.descricaoRole,
         dateRole: await formatDate(role.dateRole),
         timeRole: role.timeRole,
+        participantsRole: await getParticipantsRole(role._id),
       };
       newListItems.push(roleData);
     }
 
-    res.render("roles", { newListItems });
+    res.render("roles", { newListItems } );
   } catch (err) {
     console.error(err);
-    res.send("Erro ao buscar os rolês");
+    res.send(" Erro ao buscar os rolês ");
   } finally {
-    client.close();
+    await client.close();
   }
 });
 

@@ -9,7 +9,8 @@ router.get("/", verificaToken, (req, res) => {
 
 router.post("/", verificaToken, async (req, res) => {
   const { user } = req;
-  const { nomeRole, localRole, descricaoRole, dateRole, timeRole } = req.body;
+  const { nomeRole, localRole, descricaoRole, dateRole, timeRole} = req.body;
+  const participantsRole = [user]
   try {
     const client = await mongoClient.connect();
     const rolesCollection = client.db("voidDatabase").collection("roles");
@@ -20,6 +21,7 @@ router.post("/", verificaToken, async (req, res) => {
       descricaoRole,
       dateRole,
       timeRole,
+      participantsRole,
     });
 
     client.close();
