@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Painel do administrador</title>
-    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/global.css" />
   </head>
   <body>
     <div id="root">
       <h1>Project V</h1>
-      <h2>Painel do Administrador<br><br><%= data.user %></h2>
+      <h2>Painel do Administrador<br /><br /><%= data.user %></h2>
       <h3><a href="/perfil">Voltar</a></h3>
+
+      <form action="/modificar/usuarios" method="get">
+        <button type="submit">Modificar usuários</button>
+      </form>
     </div>
   </body>
 </html>

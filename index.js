@@ -41,6 +41,7 @@ const usuariosRouter = require("./routes/usuarios");
 const logoutRouter = require("./routes/logout");
 const roleRouter = require("./routes/exibirRole");
 const painelDoAdministradorRouter = require("./routes/painelDoAdministrador");
+const modificarUsuariosRouter = require("./routes/modificarUsuarios");
 
 // Define os roteadores para cada rota
 app.use("/", rootRouter);
@@ -54,3 +55,4 @@ app.use("/usuarios", usuariosRouter);
 app.use("/logout", logoutRouter);
 app.use("/role", roleRouter);
 app.use("/painel-do-administrador", painelDoAdministradorRouter);
+app.use("/modificar/usuarios", modificarUsuariosRouter);
