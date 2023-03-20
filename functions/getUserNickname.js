@@ -8,7 +8,7 @@ const mongoClient = require("../database/database")
  * @returns {Promise<string>} O nickname do usuário.
  */
 async function getUserNickname(userId) {
-    const client = await mongoClient.connect();
+    let client = await mongoClient.connect();
     try {
       const usersCollection = client.db("voidDatabase").collection("users");
   
@@ -18,7 +18,7 @@ async function getUserNickname(userId) {
       console.error(err);
       return "Usuário não encontrado";
     } finally {
-      client.close();
+    //   client.close();
     }
   }
 

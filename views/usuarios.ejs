@@ -14,7 +14,10 @@
       <h3><a href="/perfil">Voltar</a></h3>
       <ul>
         <% for (var i = 0; i < newListItems.length ; i++) { %>
-        <li style="color: orange; font-weight: bold"><%= newListItems[i].nickname %></li>
+
+        <li style="color: orange; font-weight: bold">
+          <%= newListItems[i].nickname %>
+        </li>
         <li><%= newListItems[i].name %>, <%= newListItems[i].age %></li>
         <% } %>
       </ul>
