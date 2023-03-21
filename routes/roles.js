@@ -25,6 +25,7 @@ router.get("/", verificaToken, async (req, res) => {
 
     const cursor = rolesCollection.find({});
     for await (const role of cursor) {
+      
       let participation = await getUserParticipationOnRole(
         req.user,
         role._id,
@@ -57,6 +58,7 @@ router.get("/", verificaToken, async (req, res) => {
 });
 
 router.post("/:id", verificaToken, async (req, res) => {
+
   try {
     const client = await mongoClient.connect();
     const rolesCollection = client.db("voidDatabase").collection("roles");
@@ -80,7 +82,7 @@ router.post("/:id", verificaToken, async (req, res) => {
             .catch((err) => {
               console.error(err);
               res.render(
-                "Não foi possível confirmar participação no rolê<script>function redirect() {document.location='/roles'}setTimeout(redirect, 3000)</script>"
+                "Não foi possível encontrar o usuário no rolê<script>function redirect() {document.location='/roles'}setTimeout(redirect, 3000)</script>"
               );
             });
         } else {
@@ -103,7 +105,7 @@ router.post("/:id", verificaToken, async (req, res) => {
       });
   } catch (err) {
     console.error(err);
-    res.render(
+    res.send(
       "Não foi possível confirmar participação no rolê<script>function redirect() {document.location='/roles'}setTimeout(redirect, 3000)</script>"
     );
   } finally {
