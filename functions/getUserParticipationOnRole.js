@@ -1,7 +1,6 @@
 const { ObjectId } = require("mongodb");
 
 async function getUserParticipationOnRole(userId, roleId, rolesCollection) {
-  
   try {
     let confirmed = false;
     await rolesCollection

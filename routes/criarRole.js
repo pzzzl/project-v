@@ -15,7 +15,7 @@ router.get("/", verificaToken, (req, res) => {
   res.render("criarRole");
 });
 
-router.post("/", verificaToken, async (req, res) => {
+router.post("/novoRole", verificaToken, async (req, res) => {
   const { user } = req;
   const { nomeRole, localRole, descricaoRole, dateRole, timeRole } = req.body;
   const participantsRole = [user];
@@ -33,7 +33,7 @@ router.post("/", verificaToken, async (req, res) => {
       participantsRole,
     });
 
-    res.status(201).send("<script>document.location = '/roles'</script>");
+    res.redirect("/roles")
   } catch (error) {
     console.error(error);
     res.status(500).send("Erro ao criar rolê");
