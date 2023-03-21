@@ -121,12 +121,9 @@ form select {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-}
-
-.boxRole{
   flex-direction: column;
 }
+
 
 #painelDoAdministrador {
   background: darkcyan;

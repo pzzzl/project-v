@@ -6,18 +6,16 @@ const mongoClient = require("../database/database");
 router.get("/", verificaToken, async (req, res) => {
   let user = req.user;
 
-  let client;
-
   try {
-    client = await mongoClient.connect();
-    let usersCollection = client.db("voidDatabase").collection("users");
+    const client = await mongoClient.connect();
+    const usersCollection = client.db("voidDatabase").collection("users");
 
-    let result = await usersCollection.findOne({ _id: user });
+    const result = await usersCollection.findOne({ _id: user });
     res.render("perfil", { data: { user: user, admin: result.admin } });
   } catch {
     res.send("Não foi possível acessar o perfil");
   } finally {
-    if (client) await client.close();
+    mongoClient.close().catch((err) => console.error(err));
   }
 });
 

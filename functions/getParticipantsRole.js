@@ -5,14 +5,14 @@ async function getParticipantsRole(roleId) {
   try {
     const rolesCollection = client.db("voidDatabase").collection("roles");
 
-    const numeroParticipantes = await rolesCollection.findOne({_id: roleId });
+    const numeroParticipantes = await rolesCollection.findOne({ _id: roleId });
 
     return numeroParticipantes.participantsRole.length;
   } catch (err) {
     console.error(err);
     return "Participantes não encontrados";
   } finally {
-    //   client.close();
+    // if (client) client.close();
   }
 }
 
