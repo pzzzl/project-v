@@ -1,18 +1,11 @@
-const mongoClient = require("../database/database");
-
-async function getParticipantsRole(roleId) {
-  let client = await mongoClient.connect();
+async function getParticipantsRole(roleId, rolesCollection) {
   try {
-    const rolesCollection = client.db("voidDatabase").collection("roles");
-
     const numeroParticipantes = await rolesCollection.findOne({ _id: roleId });
 
     return numeroParticipantes.participantsRole.length;
   } catch (err) {
     console.error(err);
     return "Participantes não encontrados";
-  } finally {
-    // if (client) client.close();
   }
 }
 

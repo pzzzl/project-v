@@ -1,10 +1,16 @@
-const mongoClient = require("../database/database");
+const { MongoClient, ServerApiVersion } = require("mongodb");
+
+const uri = `mongodb+srv://${process.env.PROJECT_V_DB_USER}:${process.env.PROJECT_V_DB_PASSWORD}@void-cluster.1zdu3qi.mongodb.net/?retryWrites=true&w=majority`;
+
+const mongoClient = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
 
 async function isAdmin(req, res, next) {
-  let client;
-
   try {
-    client = await mongoClient.connect();
+    const client = await mongoClient.connect();
     let usersCollection = client.db("voidDatabase").collection("users");
 
     let result = await usersCollection.findOne({ _id: req.user });
@@ -18,7 +24,7 @@ async function isAdmin(req, res, next) {
   } catch {
     res.send("Não foi possível verificar se o usuário é administrador");
   } finally {
-    client.close();
+    mongoClient.close().catch((err) => console.error(err));
   }
 }
 

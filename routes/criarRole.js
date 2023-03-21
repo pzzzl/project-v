@@ -1,7 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const verificaToken = require("../middlewares/verificaToken");
-const mongoClient = require("../database/database");
+const { MongoClient, ServerApiVersion } = require("mongodb");
+require("dotenv").config();
+const uri = `mongodb+srv://${process.env.PROJECT_V_DB_USER}:${process.env.PROJECT_V_DB_PASSWORD}@void-cluster.1zdu3qi.mongodb.net/?retryWrites=true&w=majority`;
+
+const mongoClient = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
 
 router.get("/", verificaToken, (req, res) => {
   res.render("criarRole");
@@ -11,8 +19,9 @@ router.post("/", verificaToken, async (req, res) => {
   const { user } = req;
   const { nomeRole, localRole, descricaoRole, dateRole, timeRole } = req.body;
   const participantsRole = [user];
+
   try {
-    client = await mongoClient.connect();
+    const client = await mongoClient.connect();
     const rolesCollection = client.db("voidDatabase").collection("roles");
     await rolesCollection.insertOne({
       user,
@@ -24,14 +33,12 @@ router.post("/", verificaToken, async (req, res) => {
       participantsRole,
     });
 
-    client.close();
-
     res.status(201).send("<script>document.location = '/roles'</script>");
   } catch (error) {
     console.error(error);
     res.status(500).send("Erro ao criar rolê");
   } finally {
-    if (client) await client.close();
+    mongoClient.close().catch((err) => console.error(err));
   }
 });
 
