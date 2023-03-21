@@ -42,7 +42,8 @@ router.post("/", async (req, res) => {
     res.cookie("token", token, { httpOnly: true }).redirect("/perfil");
   } catch (err) {
     console.error(err);
-    res.sendStatus(500);
+    // res.sendStatus(500);
+    res.status(500).send(err);
   } finally {
     if (client) await client.close();
   }
