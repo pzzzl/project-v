@@ -25,6 +25,27 @@ router.get("/:id", verificaToken, async (req, res) => {
     });
     result.dateRole = await formatDate(result.dateRole);
     result.nickname = await getUserNickname(result.user, usersCollection);
+    let participants = "";
+
+    if (result.participantsRole.length == 0) {
+      participants = "";
+    } else if (result.participantsRole.length == 1) {
+      participants = await getUserNickname(
+        result.participantsRole[0],
+        usersCollection
+      );
+    } else {
+      for await (const participant of result.participantsRole) {
+        participants += `${await getUserNickname(
+          participant,
+          usersCollection
+        )} • `;
+      }
+      participants = participants.replace(new RegExp(" • $"), "");
+    }
+
+    result.participantsRole = participants;
+
     res.render("exibirRole", { data: result });
   } catch (err) {
     res.send(err.message);

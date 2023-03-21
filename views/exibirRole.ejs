@@ -23,6 +23,11 @@
         <%= data.nickname %>
       </div>
 
+      <% if(data.participantsRole) { %>
+      <div class="box">
+        <span style="color: orange; font-weight: bold">Confirmados</span><br />
+        <%= data.participantsRole %></div>
+      <% } %>
       <div class="box">
         <span style="color: orange; font-weight: bold">Local</span><br />
         <%= data.localRole %>
