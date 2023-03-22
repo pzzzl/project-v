@@ -19,7 +19,9 @@ async function isAdmin(req, res, next) {
     } else {
       res
         .status(403)
-        .send("Você não possui permissão para acessar esta página");
+        .send(
+          "Você não possui permissão para acessar esta página<script>function redirect() {window.location='/perfil'}setTimeout(redirect, 2000)</script>"
+        );
     }
   } catch {
     res.send("Não foi possível verificar se o usuário é administrador");
