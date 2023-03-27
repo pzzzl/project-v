@@ -12,31 +12,38 @@
       <h1>Project V</h1>
       <h2>Editar perfil</h2>
       <h3><a href="/">Voltar</a></h3>
+
       <form action="/perfil/editar" method="post">
-        <input disabled type="text" name="user" placeholder="<%=user%>" /><br>
+        <input disabled type="text" name="user" placeholder="<%=user%>" /><br />
         <input
-        required
+          required
           type="text"
           value="<%=name%>"
           name="name"
           placeholder="Nome completo"
         /><br />
         <input
-        required
+          required
           type="text"
           value="<%=nickname%>"
           name="nickname"
           placeholder="Apelido"
         /><br />
         <input
-        required
+          required
           type="date"
           value="<%=bornDate%>"
           name="bornDate"
         /><br />
+
         <button class="action" type="submit">Alterar</button>
       </form>
-      <h4 style="color:<%=messageColor%>"><%=message%></h4>
+
+      <form action="/perfil/editar/foto" method="get">
+        <button type="submit">Editar foto de perfil</button>
+      </form>
+
+      <h4 style="color: <%=messageColor%>"><%=message%></h4>
     </div>
   </body>
 </html>

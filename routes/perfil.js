@@ -19,7 +19,7 @@ router.get("/", verificaToken, async (req, res) => {
     const usersCollection = client.db("voidDatabase").collection("users");
 
     const result = await usersCollection.findOne({ _id: user });
-    res.render("perfil", { data: { user: user, admin: result.admin } });
+    res.render("perfil", { data: { user: user, admin: result.admin, picture: result.picture } });
   } catch {
     res.send("Não foi possível acessar o perfil");
   } finally {

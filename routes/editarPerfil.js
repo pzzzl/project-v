@@ -30,11 +30,11 @@ router.get("/", verificaToken, async (req, res) => {
     console.log(error);
     res.status(500).send("Erro ao buscar dados do usuário");
   } finally {
-    if(client) await client.close();
+    if (client) await client.close();
   }
 });
 
-router.post("/", verificaToken, async (req, res) => {
+router.post("/", verificaToken,  async (req, res) => {
   let user = req.user;
   const { name, nickname, bornDate } = req.body;
 
@@ -70,7 +70,7 @@ router.post("/", verificaToken, async (req, res) => {
     console.log(error);
     res.status(500).send("Erro ao atualizar dados do usuário");
   } finally {
-    if(client) await client.close();
+    if (client) await client.close();
   }
 });
 

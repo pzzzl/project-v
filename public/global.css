@@ -5,7 +5,7 @@ body {
   background: #202124;
   margin: 0;
   padding: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -41,7 +41,8 @@ h4 {
   color: darkred;
 }
 
-input, select {
+input,
+select {
   margin: 4px 0;
 }
 
@@ -81,7 +82,7 @@ button.warning:hover {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: lightblue;
 }
 
@@ -114,7 +115,8 @@ form select {
   color: orange;
 }
 
-.box,.boxRole {
+.box,
+.boxRole {
   border: 1px solid white;
   margin: 10px 0;
   padding: 10px 0;
@@ -123,7 +125,6 @@ form select {
   align-items: center;
   flex-direction: column;
 }
-
 
 #painelDoAdministrador {
   background: darkcyan;
@@ -135,7 +136,7 @@ form select {
   color: lightcyan;
 }
 
-#participantesRole{
+#participantesRole {
   margin: 0px;
   padding: 0px;
   width: 90px;
@@ -149,10 +150,10 @@ form select {
   color: white;
   text-align: center;
   text-decoration: none;
-  transition-duration: 0.4s
+  transition-duration: 0.4s;
 }
 
-#participantesRole:hover{
+#participantesRole:hover {
   background: #202124;
   cursor: pointer;
 }
@@ -167,4 +168,33 @@ select {
   font-family: "Michroma", sans-serif;
   padding: 5px;
   border: none;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "Selecionar foto de perfil";
+  display: flex;
+  justify-content: center;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 5px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
+.custom-file-input:hover::before {
+  border-color: lightgreen;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.picture {
+  border-radius: 100%;
+  max-width: 100px;
+  border: 3px solid white;
 }
