@@ -10,15 +10,24 @@
   <body>
     <div id="root">
       <h1>Project V</h1>
+
+      <% if(data.picture) { %>
+      <img class="picture" src="<%=data.picture%>" alt="" />
+      <% } %>
+
       <h2><%= data.user %></h2>
-      <h3><a href="/perfil/editar">Editar perfil</a></h3>
 
       <% if(data.admin) { %>
       <form action="/painel-do-administrador" method="get">
-        <button id="painelDoAdministrador" type="submit">Painel do administrador</button>
+        <button id="painelDoAdministrador" type="submit">
+          Painel do administrador
+        </button>
       </form>
       <% } %>
 
+      <form action="/perfil/editar" method="get">
+        <button type="submit">Editar perfil</button>
+      </form>
       <form action="/roles" method="get">
         <button type="submit">Rolês</button>
       </form>

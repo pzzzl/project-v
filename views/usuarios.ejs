@@ -15,10 +15,28 @@
       <ul>
         <% for (var i = 0; i < newListItems.length ; i++) { %>
 
-        <li style="color: orange; font-weight: bold">
-          <%= newListItems[i].nickname %>
-        </li>
-        <li><%= newListItems[i].name %>, <%= newListItems[i].age %></li>
+        <div class="box">
+          <li
+            style="
+              color: orange;
+              font-weight: bold;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+            "
+          >
+            <img
+              style="border: none; max-width: 50px"
+              class="picture"
+              src="<%= newListItems[i].picture %>"
+              alt=""
+            />
+            <%= newListItems[i].nickname %>
+          </li>
+          <li><%= newListItems[i].name %>, <%= newListItems[i].age %></li>
+        </div>
+
         <% } %>
       </ul>
     </div>

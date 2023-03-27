@@ -24,6 +24,7 @@ router.get("/", verificaToken, async (req, res) => {
       nickname: userFound.nickname,
       name: userFound.name,
       age: calcAge(userFound.bornDate),
+      picture: userFound.picture,
     }));
 
     res.render("usuarios", { newListItems });
