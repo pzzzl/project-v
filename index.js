@@ -29,6 +29,10 @@ app.get("/global.css", (req, res) => {
   res.sendFile(__dirname + "/public/global.css");
 });
 
+app.get("/uploads/:fileName", (req, res) => {
+  res.sendFile(__dirname + `/uploads/${req.params.fileName}`);
+})
+
 // Importação dos roteadores para cada rota
 const rootRouter = require("./routes/root");
 const loginRouter = require("./routes/login");

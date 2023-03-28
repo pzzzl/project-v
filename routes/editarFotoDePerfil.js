@@ -68,6 +68,7 @@ router.post(
       // Converte a imagem para base64
       const base64 = await image.getBase64Async(jimp.MIME_JPEG);
 
+      console.log(`Excluindo o arquivo ${req.file.path}`)
       fs.unlink(req.file.path, (err) => {
         if (err) {
           console.error(err);
@@ -75,17 +76,21 @@ router.post(
         }
       });
 
-      let resultado = await usersCollection.updateOne({ _id: user }, { $set: { picture: base64 } }).then(result => {
-        if(result) {
-            res.redirect('/perfil')
-        }
-      }, err => {
-        console.log('erro')
-      })
-
-      
-    } catch {
-      res.send("Não foi possível alterar a foto de perfil");
+      await usersCollection
+        .updateOne({ _id: user }, { $set: { picture: base64 } })
+        .then(
+          (result) => {
+            if (result) {
+              res.redirect("/perfil");
+            }
+          },
+          (err) => {
+            console.error(err);
+            res.send(err);
+          }
+        );
+    } catch(err) {
+      res.send("Não foi possível alterar a foto de perfil: " + err.message);
     } finally {
       if (client) await client.close();
     }
