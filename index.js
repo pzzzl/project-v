@@ -29,10 +29,6 @@ app.get("/global.css", (req, res) => {
   res.sendFile(__dirname + "/public/global.css");
 });
 
-app.get("/uploads/:fileName", (req, res) => {
-  res.sendFile(__dirname + `/uploads/${req.params.fileName}`);
-})
-
 // Importação dos roteadores para cada rota
 const rootRouter = require("./routes/root");
 const loginRouter = require("./routes/login");
@@ -46,7 +42,7 @@ const logoutRouter = require("./routes/logout");
 const roleRouter = require("./routes/exibirRole");
 const painelDoAdministradorRouter = require("./routes/painelDoAdministrador");
 const modificarUsuariosRouter = require("./routes/modificarUsuarios");
-const editarFotoDePerfilRouter = require("./routes/editarFotoDePerfil")
+const editarFotoDePerfilRouter = require("./routes/editarFotoDePerfil");
 
 // Define os roteadores para cada rota
 app.use("/", rootRouter);
@@ -61,4 +57,4 @@ app.use("/logout", logoutRouter);
 app.use("/role", roleRouter);
 app.use("/painel-do-administrador", painelDoAdministradorRouter);
 app.use("/modificar/usuarios", modificarUsuariosRouter);
-app.use("/perfil/editar/foto", editarFotoDePerfilRouter)
+app.use("/perfil/editar/foto", editarFotoDePerfilRouter);
