@@ -18,7 +18,7 @@ const mongoClient = new MongoClient(uri, {
 // Define o destino dos arquivos enviados pelo multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/uploads/");
+    cb(null, "tmp/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
@@ -68,13 +68,13 @@ router.post(
       // Converte a imagem para base64
       const base64 = await image.getBase64Async(jimp.MIME_JPEG);
 
-      // console.log(`Excluindo o arquivo ${req.file.path}`)
-      // fs.unlink(req.file.path, (err) => {
-      //   if (err) {
-      //     console.error(err);
-      //     return;
-      //   }
-      // });
+      console.log(`Excluindo o arquivo ${req.file.path}`)
+      fs.unlink(req.file.path, (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      });
 
       await usersCollection
         .updateOne({ _id: user }, { $set: { picture: base64 } })

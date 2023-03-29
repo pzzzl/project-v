@@ -5,7 +5,7 @@ const app = express();
 // Middleware para tratamento de requisições JSON e URLEncoded
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('tmp'));
 
 // Configuração do mecanismo de visualização do EJS
 app.set("view engine", "ejs");
@@ -31,9 +31,9 @@ app.get("/global.css", (req, res) => {
 });
 
 // Rota para servir as imagens
-app.get('/uploads/:imageName', (req, res) => {
+app.get('/tmp/:imageName', (req, res) => {
   const imageName = req.params.imageName;
-  res.sendFile(__dirname + '/public/' + imageName);
+  res.sendFile(__dirname + '/tmp/' + imageName);
 });
 
 // Importação dos roteadores para cada rota
