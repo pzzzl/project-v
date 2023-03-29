@@ -68,13 +68,13 @@ router.post(
       // Converte a imagem para base64
       const base64 = await image.getBase64Async(jimp.MIME_JPEG);
 
-      console.log(`Excluindo o arquivo ${req.file.path}`)
-      fs.unlink(req.file.path, (err) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-      });
+      // console.log(`Excluindo o arquivo ${req.file.path}`)
+      // fs.unlink(req.file.path, (err) => {
+      //   if (err) {
+      //     console.error(err);
+      //     return;
+      //   }
+      // });
 
       await usersCollection
         .updateOne({ _id: user }, { $set: { picture: base64 } })
