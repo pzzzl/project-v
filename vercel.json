@@ -19,5 +19,16 @@
             "src": "/(.+)",
             "dest": "public/$1"
         }
-    ]
+    ],
+    "public": {
+        "upload": {
+            "source": "uploads"
+        }
+    },
+    "functions": {
+        "api/download.js": {
+            "runtime": "nodejs14.x",
+            "memory": 1024
+        }
+    }
 }
