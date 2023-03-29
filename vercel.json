@@ -21,9 +21,7 @@
         }
     ],
     "public": {
-        "upload": {
-            "source": "uploads"
-        }
+        "uploads": true
     },
     "functions": {
         "api/download.js": {

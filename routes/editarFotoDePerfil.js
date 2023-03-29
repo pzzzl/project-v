@@ -18,7 +18,7 @@ const mongoClient = new MongoClient(uri, {
 // Define o destino dos arquivos enviados pelo multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/");
+    cb(null, "public/uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
